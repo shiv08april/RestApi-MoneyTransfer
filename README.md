@@ -19,9 +19,6 @@ a pre-installed container/server).
 2. There are no detailed requirements, use common sense.
 
 
+#Environment:
 
-#Technolgies
-Java
-Dropwizard
-Maven
-Json
+Java,Dropwizard,Maven,Json,mockito,HikariCP,lombok
