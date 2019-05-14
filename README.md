@@ -1,4 +1,5 @@
-#Problem 
+#Problem:
+
 Design and implement a RESTful API (including data model and the backing implementation)
 for money transfers between accounts.
 
@@ -16,4 +17,11 @@ a pre-installed container/server).
 #Implicit requirements:
 1. The code produced by you is expected to be of high quality.
 2. There are no detailed requirements, use common sense.
-Please put your work on github or bitbucket.
+
+
+
+#Technolgies
+Java
+Dropwizard
+Maven
+Json
