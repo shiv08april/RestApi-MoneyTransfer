@@ -1,0 +1,58 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+	logicalFilePath="1.0">
+
+	<changeSet id="initial_schema" author="shiv">
+		<createTable tableName="accounts">
+			<column name="id" type="varchar2(36)" />
+			<column name="version" type="number(12,0)" />
+			<column name="account_number" type="varchar2(8)" />
+			<column name="sort_code" type="varchar2(6)" />
+			<column name="balance" type="number(12,3)" />
+			<column name="opened_at" type="timestamp" />
+		</createTable>
+		<addNotNullConstraint tableName="accounts"
+			columnName="id" columnDataType="varchar2(36)" />
+		<addPrimaryKey tableName="accounts" columnNames="id"
+			constraintName="accts_id_pk" />
+		<addNotNullConstraint tableName="accounts"
+			columnName="version" columnDataType="number(12,0)" />
+		<addNotNullConstraint tableName="accounts"
+			columnName="account_number" columnDataType="varchar2(8)" />
+		<addNotNullConstraint tableName="accounts"
+			columnName="sort_code" columnDataType="varchar2(6)" />
+		<addNotNullConstraint tableName="accounts"
+			columnName="balance" columnDataType="number(12,3)" />
+		<addNotNullConstraint tableName="accounts"
+			columnName="opened_at" columnDataType="timestamp" />
+
+		<createTable tableName="transactions">
+			<column name="id" type="varchar2(36)" />
+			<column name="account_id" type="varchar2(36)" />
+			<column name="amount" type="number(12,3)" />
+			<column name="type" type="varchar2(32)" />
+			<column name="message" type="varchar2(255)" />
+			<column name="issued_at" type="timestamp" />
+		</createTable>
+		<addNotNullConstraint tableName="transactions"
+			columnName="id" columnDataType="varchar2(36)" />
+		<addPrimaryKey tableName="transactions" columnNames="id"
+			constraintName="txs_id_pk" />
+		<addNotNullConstraint tableName="transactions"
+			columnName="account_id" columnDataType="varchar2(36)" />
+		<addForeignKeyConstraint
+			baseTableName="transactions" baseColumnNames="account_id"
+			referencedTableName="accounts" referencedColumnNames="id"
+			constraintName="txs_accts_fk" />
+		<addNotNullConstraint tableName="transactions"
+			columnName="amount" columnDataType="number(12,3)" />
+		<addNotNullConstraint tableName="transactions"
+			columnName="type" columnDataType="varchar2(32)" />
+		<addNotNullConstraint tableName="transactions"
+			columnName="issued_at" columnDataType="timestamp" />
+	</changeSet>
+
+</databaseChangeLog>

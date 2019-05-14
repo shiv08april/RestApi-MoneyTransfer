@@ -1,0 +1,11 @@
+db:
+  url: jdbc:h2:mem:test
+  driverClass: org.h2.Driver
+  
+server:
+    applicationConnectors:
+        - type: http
+          port: 6666
+    adminConnectors:
+        - type: http
+          port: 6667  
